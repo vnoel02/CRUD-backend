@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("./db");
-const PORT = "3000"; //Port number
+const PORT = "4000"; //Port number
 
 const app = express(); // instance to express module
 
