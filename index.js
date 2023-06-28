@@ -1,0 +1,22 @@
+const express = require("express");
+const db = require("./db");
+const PORT = "3000"; //Port number
+
+const app = express(); // instance to express module
+
+app.use("/api", require("./api")); //Mounting api for routing via express
+
+// Potential sync, place db.sync({force: true }) to nuke data
+const syncDB = () => db.sync();
+
+
+const runServer = () => {
+  app.listen(PORT, () => {
+    console.log(`Live on port: ${PORT}`);
+  });
+};
+
+syncDB();
+runServer();
+
+module.exports = app;
