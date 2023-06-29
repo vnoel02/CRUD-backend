@@ -4,7 +4,7 @@ const { Campuses } = require("../db/models");
 
 // root of campuses ==> localhost:3000/api/campuses/
 
-router.get("/", async (req, res, nex) => {
+router.get("/", async (req, res, next) => {
   try {
     const allCampuses = await Campuses.findAll();
     allCampuses
@@ -14,5 +14,13 @@ router.get("/", async (req, res, nex) => {
     next(error);
   }
 });
+
+
+//Post - create an new campus
+router.post("/", async(req, res, next) => {
+    const newCampus = await Campuses.create(req.body).then(() => {
+        res.send("A new Campus has been inserted")
+    })
+})
 
 module.exports = router;
