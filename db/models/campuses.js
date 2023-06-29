@@ -10,7 +10,7 @@ const Campuses = db.define("campuses", {
 
     imageUrl: {
         type: DataTypes.TEXT,
-        defaultValue: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/2016_Brooklyn_College_Library.jpg/1920px-2016_Brooklyn_College_Library.jpg"
+        defaultValue: "https://www.brooklyn.cuny.edu/web/com_socialImages/BrooklynCollegeLibrary_1200x628.jpg"
     },
 
     address: {
