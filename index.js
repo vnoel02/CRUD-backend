@@ -4,6 +4,8 @@ const PORT = "4000"; //Port number
 
 const app = express(); // instance to express module
 
+app.use(express.json())
+
 app.use("/api", require("./api")); //Mounting api for routing via express
 
 // Potential sync, place db.sync({force: true }) to nuke data

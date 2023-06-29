@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+
+
 // Mounted on /api/
 router.use("/campuses", require("./campuses"));
 
