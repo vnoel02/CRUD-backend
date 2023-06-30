@@ -37,6 +37,23 @@ router.post("/", async (req, res, next) => {
   
 
 });
+
+// Delete - delete a new campus, parameterized
+router.delete("/delete/:id", async (req,res,next) => {
+    try {
+        const deleteCampus = await Campuses.destroy({where: {id : req.params.id}});
+        deleteCampus 
+        ? res.status(200).json("deleted")
+        : res.status(404).json("Nothing to delete")
+    } catch (error) {
+        next(error);
+    };
+})
+// Put - edit a new campus
+
+
+
+
 module.exports = router;
 
 // {
