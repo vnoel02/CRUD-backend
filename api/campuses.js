@@ -18,16 +18,12 @@ router.get("/", async (req, res, next) => {
 });
 
 //Post - create an new campus
-router.post("/", async (req, res, next) => {
-    // const name = req.query.name;
-    // const address = req.query.address;
-    // const description = req.query.description;
-    
-    
+router.post("/", async (req, res, next) => { 
     try {
         const newCampus = await Campuses.create({
             name: req.body.name,
             address: req.body.address,
+            // imageUrl: req.body.imageUrl,
             description: req.body.description,
           });
           newCampus
@@ -41,7 +37,6 @@ router.post("/", async (req, res, next) => {
   
 
 });
-//{name: "Brooklyn College", address: "2900 Bedford Ave, Brooklyn, NY 11210", description: "sample text" }
 module.exports = router;
 
 // {
