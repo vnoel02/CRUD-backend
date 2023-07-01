@@ -50,15 +50,51 @@ router.delete("/delete/:id", async (req, res, next) => {
 
 router.get("/get/:id", async (req, res, next) => {
   try {
-    const singleCampus =  await Campuses.findAll({ where: {id: req.params.id}});
+    const singleCampus = await Campuses.findAll({
+      where: { id: req.params.id },
+    });
     singleCampus
-        ? res.status(200).json(singleCampus)
-        : res.status(404).json("Campus not found");
+      ? res.status(200).json(singleCampus)
+      : res.status(404).json("Campus not found");
   } catch (error) {
     next(error);
   }
 });
 // Put - edit a new campus
+
+router.put("/edit/:id", async (req, res, next) => {
+  try {
+    // updates campus name
+    const editCampus = Campuses.update(
+      { name: req.body.name },
+      { where: { id: req.params.id } }
+    );
+
+    // updates image url
+    Campuses.update(
+      { imageUrl: req.body.imageUrl },
+      { where: { id: req.params.id } }
+    );
+
+    // updates address
+    Campuses.update(
+      { address: req.body.address },
+      { where: { id: req.params.id } }
+    );
+
+    // updates description
+    Campuses.update(
+      { description: req.body.description },
+      { where: { id: req.params.id } }
+    );
+
+    editCampus
+      ? res.status(200).json("Is updated")
+      : res.status(400).json("Can't edit");
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
 
