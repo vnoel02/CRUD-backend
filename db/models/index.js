@@ -1,5 +1,14 @@
 // Also export my tables
 const Campuses = require("./campuses");
-// Establish relationship of student and student here
+const Students = require("./students");
 
-module.exports = {Campuses};
+// Establish relationship of student and student here
+Students.belongsTo(Campuses, {
+//   foreignKey: "campusID",
+  as: "campus",
+});
+Campuses.hasMany(Students, {
+  as: "students",
+});
+
+module.exports = { Campuses, Students };
