@@ -47,4 +47,18 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+  // Get - single student
+  router.get("/get/:id", async (req, res, next) => {
+    try {
+      const singleStudent = await Students.findAll({
+        where: { id: req.params.id },
+      });
+      singleStudent
+        ? res.status(200).json(singleStudent)
+        : res.status(404).json("Student not found");
+    } catch (error) {
+      next(error);
+    }
+  });
+
   module.exports = router;
