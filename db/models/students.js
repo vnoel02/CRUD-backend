@@ -23,9 +23,6 @@ const Students = db.define("students", {
     imageUrl: {
         type: DataTypes.TEXT,
         defaultValue: "https://as2.ftcdn.net/v2/jpg/00/64/67/63/1000_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg",
-        validate: {
-            isUrl:true
-        }
     },
     GPA: {
         type: DataTypes.DOUBLE,
