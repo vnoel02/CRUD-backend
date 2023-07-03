@@ -32,4 +32,19 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+
+// Delete - delete a student
+  router.delete("/delete/:id", async (req, res, next) => {
+    try {
+      const deleteStudent = await Students.destroy({
+        where: { id: req.params.id },
+      });
+     deleteStudent
+        ? res.status(200).json("deleted")
+        : res.status(404).json("Nothing to delete");
+    } catch (error) {
+      next(error);
+    }
+  });
+
   module.exports = router;
