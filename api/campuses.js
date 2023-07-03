@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { Campuses } = require("../db/models");
+const { Campuses, Students } = require("../db/models");
 
 // root of campuses ==> localhost:3000/api/campuses/
 
 router.get("/", async (req, res, next) => {
   try {
-    const allCampuses = await Campuses.findAll();
+    const allCampuses = await Campuses.findAll({include: "students"});
     allCampuses
       ? res.status(200).json(allCampuses)
       : res.status(404).json("No campuses found"); // Might modify this since I have to display that no campuses are displayed
