@@ -22,13 +22,18 @@ const Students = db.define("students", {
     },
     imageUrl: {
         type: DataTypes.TEXT,
-        defaultValue: "https://as2.ftcdn.net/v2/jpg/00/64/67/63/1000_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+        defaultValue: "https://as2.ftcdn.net/v2/jpg/00/64/67/63/1000_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg",
+        validate: {
+            isUrl:true
+        }
     },
     GPA: {
         type: DataTypes.DOUBLE,
         allowNull: false,
         validate: {
-            isLen: [0.0, 4.0]
+            isDecimal: true,
+            max: 4.0,
+            min: 0.0
         }
     },
     // campusID: {
