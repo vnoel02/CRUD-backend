@@ -49,8 +49,11 @@ router.delete("/delete/:id", async (req, res, next) => {
 // Get - single student
 router.get("/get/:id", async (req, res, next) => {
   try {
-    const singleStudent = await Students.findAll({
+    const singleStudent = await Students.findOne({
       where: { id: req.params.id },
+      include: [
+        "campus"
+      ]
     });
     singleStudent
       ? res.status(200).json(singleStudent)
