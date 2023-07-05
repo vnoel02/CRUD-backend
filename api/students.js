@@ -91,6 +91,7 @@ router.put("/edit/:id", async (req, res, next) => {
       { where: { id: req.params.id } }
     );
 
+    // updates GPA
     Students.update(
         { GPA: req.body.GPA },
         { where: { id: req.params.id } }
