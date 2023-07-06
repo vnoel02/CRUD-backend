@@ -15,5 +15,14 @@ router.use((req,res,next) => {
 
 });
 
+router.get("/", (req,res) => {
+    res.send(`
+      <div>
+        <h1> Welcome to Victor's CRUD-backend</h1>
+      </div>
+      `
+    )
+  })
+
 // importing router to campuses and students
 module.exports = router;
