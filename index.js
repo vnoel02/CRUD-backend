@@ -15,6 +15,13 @@ app.use("/api", require("./api")); //Mounting api for routing via express
 // Potential sync, place db.sync({force: true }) to nuke data
 const syncDB = () => db.sync();
 
+app.get("/", (req,res) => {
+  res.status(200).send(
+    <div>
+      <h1> Welcome to Victor's CRUD-backend</h1>
+    </div>
+  )
+})
 
 const runServer = () => {
   app.listen(PORT, () => {
