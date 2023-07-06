@@ -1,11 +1,19 @@
 {
     "version": 2,
-    "name": "crud-backend",
     "builds": [
-        { "src": "index.js", "use": "@vercel/node" }
+      {
+        "src": "index.js",
+        "use": "@now/node"
+      }
     ],
-
     "routes": [
-        { "src": "/(.*)", "dest": "index.js" }
+      {
+        "src": "/(.*)",
+        "dest": "index.js",
+        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        }
+      }
     ]
-}
+  }
