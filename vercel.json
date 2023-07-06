@@ -5,6 +5,6 @@
         { "src": "/api/app.js", "use": "@now/node" }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "/api/index.js" }
+        { "src": "/api/app(.*)", "dest": "/api/app.js" }
     ]
 }
