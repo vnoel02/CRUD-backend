@@ -1,10 +1,10 @@
 {
-    "version": 1,
-    "name": "nodejs-express",
+    "version": 2,
+    "name": "crud-backend",
     "builds": [
         { "src": "index.js", "use": "@vercel/node" }
     ],
-    
+
     "routes": [
         { "src": "/(.*)", "dest": "index.js" }
     ]
