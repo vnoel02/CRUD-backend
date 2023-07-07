@@ -7,7 +7,8 @@ require('dotenv').config();
 
 const db = new Sequelize(process.env.DATABASE_URL, {
     logging: false,
-    dialect: require('pg')
+    // process.env.DATABASE_URL
+    // dialect: require('pg')
 });
 //postgres://localhost:5432/${name}
 module.exports = db;
