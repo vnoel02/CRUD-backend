@@ -16,7 +16,7 @@ app.use("/api", require("./api")); //Mounting api for routing via express
 const syncDB = () => db.sync();
 
 app.get("/", (req,res) => {
-  res.json("Welcome to Victor's CRUD-backend")
+  res.send(`Welcome to Victor's CRUD-backend`)
 });
 
 const runServer = () => {
