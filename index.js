@@ -22,7 +22,7 @@ app.get("/", (req,res) => {
     </div>
     `
   )
-})
+});
 
 const runServer = () => {
   app.listen(PORT, () => {
